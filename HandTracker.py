@@ -33,7 +33,6 @@ while True:
                 center_x = int(lm.x * width)
                 center_y = int(lm.y * height)
                 landmarks.append([id, center_x, center_y])
-                print([id, center_x, center_y])
         draw_utils.draw_landmarks(img, detected_hand, init_hands.HAND_CONNECTIONS)
 
     cv.imshow("Video", img)
