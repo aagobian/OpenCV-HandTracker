@@ -11,7 +11,7 @@ hand = init_hands.Hands()
 # initializes drawing object
 draw_utils = mp.solutions.drawing_utils
 
-# loop to capture video from the screen and display it on the screen
+# loop to capture video from the webcam and display it on the screen
 while True:
     success, img = cam.read()
 
@@ -36,4 +36,12 @@ while True:
         draw_utils.draw_landmarks(img, detected_hand, init_hands.HAND_CONNECTIONS)
 
     cv.imshow("Video", img)
-    cv.waitKey(15)
+
+    # press esc key to exit
+    key = cv.waitKey(1)
+    if key == 27:
+        break
+
+# exit webcam
+cam.release()
+cv.destroyAllWindows()
